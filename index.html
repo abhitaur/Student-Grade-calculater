@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student grade calculator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        background: linear-gradient(45deg, #d96d82, #2b43ba);
+        width: 100%;
+        height: 100vh;
+      }
+
+      .container .card {
+        height: 50vh;
+        width: 300px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 23px;
+        box-shadow: rgba(0, 0, 0, 0.18);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .flex-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      h2 {
+        text-align: center;
+        position: relative;
+        top: 20%;
+        font-weight: 500;
+        font-size: 30px;
+        color: #ffff;
+        font-family: sans-serif;
+        text-shadow: rgba(0, 0, 0, 0.18);
+      }
+
+      .input {
+        margin: 10px 0px;
+      }
+
+      .input input {
+        width: 90%;
+        height: 22px;
+        margin: 10px;
+        outline: none;
+        border: none;
+        font-weight: bold;
+        text-indent: 30px;
+        padding: 3px 5px;
+        color: #000;
+        box-shadow: rgba(0, 0, 0, 0.18);
+      }
+
+      ::placeholder {
+        font-weight: bold;
+        text-indent: 30px;
+        padding: 3px 5px;
+        color: #000;
+      }
+
+      button {
+        background-color: crimson;
+        outline: none;
+        border: none;
+        font-weight: bold;
+        padding: 3px 15px;
+        color: #fff;
+        margin: 10px 90px;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+      button:hover {
+        background-color: rgb(120, 13, 34);
+      }
+
+      p {
+        color: crimson;
+
+        font-weight: bold;
+        padding: 3px 15px;
+        color: #fff;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Student Grade Calculator</h2>
+      <div class="flex-box">
+        <div class="card">
+          <div class="input">
+            <input type="number" id="p" placeholder="Physics" />
+            <input type="number" id="c" placeholder="Chemistry" />
+            <input type="number" id="d" placeholder="Maths" />
+            <input type="number" id="f" placeholder="Biology" />
+
+            <button onclick="calculate()">Calculate Marks</button>
+            <p id="demo"></p>
+            <p id="demo1"></p>
+            <p id="demo2"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function calculate() {
+        let p = document.getElementById("p").value;
+        let c = document.getElementById("c").value;
+        let d = document.getElementById("d").value;
+        let f = document.getElementById("f").value;
+
+        const sum = parseFloat(p) + parseFloat(c) + parseFloat(d) + parseFloat(f);
+         
+        document.getElementById( "demo").innerHTML = `Your toral marks is = ${sum}`;
+         const percentage = (sum / 400) * 100;
+          document.getElementById("demo1").innerHTML = `Your Percentage marks is = ${percentage}%`;
+          if (percentage >= 80) {
+          document.getElementById("demo2").innerHTML = `Your Grade is A`;
+        } else if (percentage >= 60) {
+          document.getElementById("demo2").innerHTML = `Your Grade is B++`;
+        } else if (percentage >= 40) {
+          document.getElementById("demo2").innerHTML = `Your Grade id B`;
+        } else {
+          document.getElementById("demo2").innerHTML = `Your are Fail !!`;
+        }
+      }
+
+
+
+    </script>
+  </body>
+</html>
